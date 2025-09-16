@@ -1,0 +1,15 @@
+#ifndef IRQ_H
+#define IRQ_H
+
+// BCM2837 System Timer IRQs
+#define SYSTEM_TIMER_IRQ_0	0
+#define SYSTEM_TIMER_IRQ_1	1
+#define SYSTEM_TIMER_IRQ_2	2
+#define SYSTEM_TIMER_IRQ_3	3
+
+#define IRQ_INTERVAL_TIMER0 SYSTEM_TIMER_IRQ_1
+
+// BCM2837 UART IRQ
+#define UART_IRQ		57
+
+#endif /* IRQ_H */
