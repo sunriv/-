@@ -1,0 +1,2 @@
+#define NULL 0
+#define IRQ_INTERVAL_TIMER0 0

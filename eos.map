@@ -1,0 +1,261 @@
+Archive member included because of file (symbol)
+
+core/module.a(interrupt.o)    hal/smdk2440/entry.o (_os_common_interrupt_handler)
+core/module.a(main.o)         hal/smdk2440/entry.o (_os_initialization)
+core/module.a(scheduler.o)    core/module.a(main.o) (_os_init_scheduler)
+core/module.a(sync.o)         core/module.a(interrupt.o) (eos_lock_scheduler)
+core/module.a(task.o)         core/module.a(main.o) (eos_create_task)
+core/module.a(timer.o)        core/module.a(sync.o) (eos_set_alarm)
+core/module.a(common.o)       core/module.a(interrupt.o) (eos_printf)
+user/module.a(work.o)         core/module.a(main.o) (eos_user_main)
+hal/smdk2440/module.a(context.o)
+                              core/module.a(task.o) (_os_create_context)
+hal/smdk2440/module.a(init.o)
+                              core/module.a(main.o) (_os_init_hal)
+hal/smdk2440/module.a(interrupt.o)
+                              core/module.a(main.o) (eos_enable_interrupt)
+hal/smdk2440/module.a(serial.o)
+                              core/module.a(common.o) (_os_serial_puts)
+hal/smdk2440/module.a(timer.o)
+                              hal/smdk2440/module.a(init.o) (_os_init_PWM)
+core/module.a(comm.o)         user/module.a(work.o) (eos_init_mqueue)
+/home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_udivsi3.oS)
+                              core/module.a(common.o) (__udivsi3)
+/home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_umodsi3.oS)
+                              core/module.a(common.o) (__umodsi3)
+/home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_dvmd_lnx.oS)
+                              /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_udivsi3.oS) (__div0)
+
+Allocating common symbols
+Common symbol       size              file
+
+mq2                 0x28              user/module.a(work.o)
+_os_ready_table     0x8               core/module.a(interrupt.o)
+_os_icb_table       0x180             core/module.a(interrupt.o)
+mq1                 0x28              user/module.a(work.o)
+_os_ready_group     0x1               core/module.a(interrupt.o)
+_os_scheduler_lock  0x1               core/module.a(interrupt.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+START GROUP
+LOAD user/module.a
+LOAD hal/smdk2440/module.a
+LOAD core/module.a
+LOAD core/module.a
+Address of section .text set to 0x30000000
+                0x30000000                . = 0x30000000
+                0x30000000                . = ALIGN (0x4)
+
+.text           0x30000000     0x1efc
+ hal/smdk2440/entry.o(.text)
+ .text          0x30000000       0xd0 hal/smdk2440/entry.o
+                0x30000040                _armboot_end
+                0x30000000                _start
+ *(.text)
+ .text          0x300000d0      0x158 core/module.a(interrupt.o)
+                0x3000019c                eos_set_interrupt_handler
+                0x30000140                _os_common_interrupt_handler
+                0x30000208                eos_get_interrupt_handler
+                0x300000d0                _os_init_icb_table
+ .text          0x30000228       0xbc core/module.a(main.o)
+                0x30000228                _os_initialization
+ .text          0x300002e4      0x130 core/module.a(scheduler.o)
+                0x300003c4                _os_unset_ready
+                0x300002e4                _os_init_scheduler
+                0x30000378                _os_set_ready
+                0x30000348                _os_get_highest_priority
+ .text          0x30000414      0x264 core/module.a(sync.o)
+                0x300005ac                eos_wait_condition
+                0x30000644                eos_restore_scheduler
+                0x3000059c                eos_init_condition
+                0x30000568                eos_release_semaphore
+                0x30000618                eos_notify_condition
+                0x30000668                eos_get_scheduler_lock
+                0x3000061c                eos_lock_scheduler
+                0x30000428                eos_acquire_semaphore
+                0x30000414                eos_init_semaphore
+ .text          0x30000678      0x52c core/module.a(task.o)
+                0x30000af8                _os_wakeup_queue
+                0x300007b4                eos_set_period
+                0x30000728                eos_destroy_task
+                0x300009cc                _os_schedule
+                0x30000730                eos_get_current_task
+                0x3000096c                _os_init_task
+                0x300007ac                eos_get_priority
+                0x30000740                eos_change_priority
+                0x30000aa4                _os_wait
+                0x30000b4c                _os_wakeup_task
+                0x30000678                eos_create_task
+                0x30000b48                _os_wakeup_all
+                0x300007d8                eos_suspend_task
+                0x300007d0                eos_get_period
+                0x30000828                eos_resume_task
+                0x30000870                eos_sleep
+ .text          0x30000ba4      0x160 core/module.a(timer.o)
+                0x30000c14                eos_get_system_timer
+                0x30000cd8                _os_init_timer
+                0x30000ba4                eos_init_counter
+                0x30000bb4                eos_set_alarm
+                0x30000c20                eos_trigger_counter
+ .text          0x30000d04      0x8fc core/module.a(common.o)
+                0x30001104                vsprintf
+                0x30000de8                _os_remove_node
+                0x30000e44                strnlen
+                0x30000d3c                _os_add_node_tail
+                0x30000d6c                _os_add_node_priority
+                0x30000d04                eos_printf
+ .text          0x30001600      0x2b8 user/module.a(work.o)
+                0x300017b4                eos_user_main
+ .text          0x300018b8       0x44 hal/smdk2440/module.a(context.o)
+                0x300018ec                _os_save_context
+                0x300018d4                _os_restore_context
+                0x300018b8                _os_create_context
+ .text          0x300018fc       0x3c hal/smdk2440/module.a(init.o)
+                0x300018fc                _os_init_hal
+ .text          0x30001938       0xd4 hal/smdk2440/module.a(interrupt.o)
+                0x30001938                eos_enable_interrupt
+                0x300019d4                eos_disable_irq_line
+                0x30001948                eos_disable_interrupt
+                0x300019a8                eos_get_irq
+                0x30001980                eos_ack_irq
+                0x300019f0                eos_enable_irq_line
+                0x30001964                eos_restore_interrupt
+ .text          0x30001a0c       0x54 hal/smdk2440/module.a(serial.o)
+                0x30001a34                _os_serial_puts
+                0x30001a0c                _os_serial_putc
+ .text          0x30001a60      0x1a0 hal/smdk2440/module.a(timer.o)
+                0x30001ac8                get_HCLK
+                0x30001b88                get_PCLK
+                0x30001ac0                get_FCLK
+                0x30001bb4                _os_init_PWM
+ .text          0x30001c00      0x188 core/module.a(comm.o)
+                0x30001c58                eos_send_message
+                0x30001cf0                eos_receive_message
+                0x30001c00                eos_init_mqueue
+ .text          0x30001d88       0x98 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_udivsi3.oS)
+                0x30001d88                __udivsi3
+ .text          0x30001e20       0xc0 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_umodsi3.oS)
+                0x30001e20                __umodsi3
+ .text          0x30001ee0       0x1c /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_dvmd_lnx.oS)
+                0x30001ee0                __div0
+
+.glue_7         0x30001efc        0x0
+
+.glue_7t        0x30001efc        0x0
+END GROUP
+                0x30001efc                . = ALIGN (0x4)
+
+.data           0x30001efc        0x0
+ *(.data)
+                0x30001efc                . = ALIGN (0x4)
+
+.bss            0x30001f00     0x82e8
+ *(.bss)
+ .bss           0x30001f00     0x1fe4 core/module.a(main.o)
+ .bss           0x30003ee4      0x104 core/module.a(task.o)
+ .bss           0x30003fe8        0x8 core/module.a(timer.o)
+ .bss           0x30003ff0     0x5fc0 user/module.a(work.o)
+ *fill*         0x30009fb0       0x10 00
+ COMMON         0x30009fc0      0x1a9 core/module.a(interrupt.o)
+                                  0x0 (size before relaxing)
+                0x30009fc0                _os_ready_table
+                0x30009fe0                _os_icb_table
+                0x3000a160                _os_ready_group
+                0x3000a168                _os_scheduler_lock
+ *fill*         0x3000a169       0x17 00
+ COMMON         0x3000a180       0x68 user/module.a(work.o)
+                                  0x0 (size before relaxing)
+                0x3000a180                mq2
+                0x3000a1c0                mq1
+                0x3000a1e8                . = ALIGN (0x4)
+
+.rodata         0x3000a1e8      0x108
+ *(.rodata)
+ .rodata        0x3000a1e8      0x108 core/module.a(scheduler.o)
+                0x3000a1f0                _os_unmap_table
+                0x3000a1e8                _os_map_table
+
+.rodata.str1.4  0x3000a2f0      0x41e
+ .rodata.str1.4
+                0x3000a2f0       0x92 core/module.a(interrupt.o)
+                                 0x94 (size before relaxing)
+ *fill*         0x3000a382        0x2 00
+ .rodata.str1.4
+                0x3000a384       0x66 core/module.a(main.o)
+                                 0x78 (size before relaxing)
+ *fill*         0x3000a3ea        0x2 00
+ .rodata.str1.4
+                0x3000a3ec       0x40 core/module.a(scheduler.o)
+                                 0x50 (size before relaxing)
+ .rodata.str1.4
+                0x3000a42c       0x8d core/module.a(sync.o)
+                                 0xa0 (size before relaxing)
+ *fill*         0x3000a4b9        0x3 00
+ .rodata.str1.4
+                0x3000a4bc       0xbb core/module.a(task.o)
+                                 0xcc (size before relaxing)
+ *fill*         0x3000a577        0x1 00
+ .rodata.str1.4
+                0x3000a578       0x2e core/module.a(timer.o)
+                                 0x40 (size before relaxing)
+ *fill*         0x3000a5a6        0x2 00
+ .rodata.str1.4
+                0x3000a5a8       0x57 core/module.a(common.o)
+                                 0x58 (size before relaxing)
+ *fill*         0x3000a5ff        0x1 00
+ .rodata.str1.4
+                0x3000a600       0xdb user/module.a(work.o)
+                                 0xec (size before relaxing)
+ *fill*         0x3000a6db        0x1 00
+ .rodata.str1.4
+                0x3000a6dc       0x32 hal/smdk2440/module.a(init.o)
+                                 0x44 (size before relaxing)
+                0x3000a710                . = ALIGN (0x10)
+                0x3000a710                armboot_end = .
+LOAD /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a
+OUTPUT(eos elf32-littlearm)
+
+.comment        0x00000000       0xfc
+ .comment       0x00000000       0x12 core/module.a(interrupt.o)
+ .comment       0x00000012       0x12 core/module.a(main.o)
+ .comment       0x00000024       0x12 core/module.a(scheduler.o)
+ .comment       0x00000036       0x12 core/module.a(sync.o)
+ .comment       0x00000048       0x12 core/module.a(task.o)
+ .comment       0x0000005a       0x12 core/module.a(timer.o)
+ .comment       0x0000006c       0x12 core/module.a(common.o)
+ .comment       0x0000007e       0x12 user/module.a(work.o)
+ .comment       0x00000090       0x12 hal/smdk2440/module.a(context.o)
+ .comment       0x000000a2       0x12 hal/smdk2440/module.a(init.o)
+ .comment       0x000000b4       0x12 hal/smdk2440/module.a(interrupt.o)
+ .comment       0x000000c6       0x12 hal/smdk2440/module.a(serial.o)
+ .comment       0x000000d8       0x12 hal/smdk2440/module.a(timer.o)
+ .comment       0x000000ea       0x12 core/module.a(comm.o)
+
+.debug_aranges  0x00000000       0x60
+ .debug_aranges
+                0x00000000       0x20 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_udivsi3.oS)
+ .debug_aranges
+                0x00000020       0x20 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_umodsi3.oS)
+ .debug_aranges
+                0x00000040       0x20 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_dvmd_lnx.oS)
+
+.debug_info     0x00000000      0x2c7
+ .debug_info    0x00000000       0xed /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_udivsi3.oS)
+ .debug_info    0x000000ed       0xed /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_umodsi3.oS)
+ .debug_info    0x000001da       0xed /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_dvmd_lnx.oS)
+
+.debug_abbrev   0x00000000       0x3c
+ .debug_abbrev  0x00000000       0x14 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_udivsi3.oS)
+ .debug_abbrev  0x00000014       0x14 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_umodsi3.oS)
+ .debug_abbrev  0x00000028       0x14 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_dvmd_lnx.oS)
+
+.debug_line     0x00000000      0x252
+ .debug_line    0x00000000       0xc6 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_udivsi3.oS)
+ .debug_line    0x000000c6       0xc6 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_umodsi3.oS)
+ .debug_line    0x0000018c       0xc6 /home/wsyoo/crosstool/arm-softfloat-linux-gnu/gcc-3.3.2-glibc-2.3.2/lib/gcc-lib/arm-softfloat-linux-gnu/3.3.2/libgcc.a(_dvmd_lnx.oS)
